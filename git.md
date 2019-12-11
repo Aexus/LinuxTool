@@ -7,20 +7,20 @@ Today I can use git in Linux.
 ==========
 深入理解了几个git命令，入门级命令。
 ---
-### ssh
+###  ssh
 ```bash
 ssh-keygen -t rsa -C "your@email.com"
 ```
 * -t  Type 指的是加密算法的类型，后面跟得是rsa
 * -C  comment 注释，一般是使用你的邮箱地址
 
-### config
+###  config
 
     git config --global user.name "用户名"
     git config --global user.email "邮箱"
     git config --global core.quotepath false
 
-### git add or rm
+###  git add or rm
         git add (filename)
         git rm (filename)
 
@@ -29,19 +29,19 @@ ssh-keygen -t rsa -C "your@email.com"
     git add .
 
 添加全部修改或新增的文件
-### commit
+###  commit
 ```bash
 git commit -m "the first commit"
 ```
 提交文件，后面的字符串就是commit的标题<br>
 单引号，双引号都可以
-### 修改默认编辑器
+###  修改默认编辑器
 linux中直接使用`git commit`会出现nano。nano写commit的提示信息很不方便。貌似一定要要保存个文件名什么的，用着也不如vim顺手。
 设置
 
     git config --global core.editor vim
 
-### git总结(来自网络)
+###  git总结(来自网络)
 >如果你在与Git的默认设置背道而驰，先问问为什么。　　
 >将公共分支历史看做不可变的、原子性的、容易追溯的。将私有分支历史看做一次性的、可编辑的。
 >推荐的工作流程是：
@@ -54,7 +54,7 @@ linux中直接使用`git commit`会出现nano。nano写commit的提示信息很�
 =====
 今天好多的第一次吧。其实学习本身就是一个个第一次的过程。今天主要是关于Git的学习了吧。
 -----
-### 分支
+###  分支
 |操作|详细命令|
 |:----:|:-----:|
 |新建分支|`git branch testing`|
@@ -62,7 +62,7 @@ linux中直接使用`git commit`会出现nano。nano写commit的提示信息很�
 |删除分支|`git branch -d testing`|
 |查看分支|`git branch`|
 
-### stash
+###  stash
 我今天遇到的一个状况就是：我是在网站上新建的分支alpha，然后本地的代码又进行了改动，本来想把改动都push进alpha的。结果在本地是无法checkout的。因为本地还没有这个分支，这时候git stash就派上用场了。
 - git stash
 - git pull
@@ -84,7 +84,7 @@ linux中直接使用`git commit`会出现nano。nano写commit的提示信息很�
 ===========
 分支的小盲点
 ------------
-### 提交新分支
+###  提交新分支
 今天为操作系统实验，新建了个文件夹。又新建了个os分支用于在本地编辑实验文件。然后学到了提交本地新建分支到服务器。<br>在本地新建分支很容易
 
     git branch 【分支名】
@@ -93,7 +93,7 @@ linux中直接使用`git commit`会出现nano。nano写commit的提示信息很�
 
     git push origin 【分支名】
 
-### 新建并切换到新分支
+###  新建并切换到新分支
 
     git checkout -b 【新分支名】
 		
@@ -139,7 +139,7 @@ linux中直接使用`git commit`会出现nano。nano写commit的提示信息很�
 
 2014/06/15
 ==========
-## 移动文件
+##  移动文件
 原先我移动文件到另一个文件夹总是使用shell的命令。
 
     mv a.txt Book/
@@ -151,7 +151,7 @@ linux中直接使用`git commit`会出现nano。nano写commit的提示信息很�
 
     git mv a.txt Book/
 不仅移动了文件的位置，而且自动track了这个变动。
-## git add新学习
+##  git add新学习
 
     git add -u
 可以自动track删除掉的文件
@@ -161,11 +161,11 @@ linux中直接使用`git commit`会出现nano。nano写commit的提示信息很�
 
 2014/06/22
 ==========
-## git init
+##  git init
 原先一直是clone项目的。但是也可以把本地项目变作git项目。只需要
 
     git init
-## git remote
+##  git remote
 但是还有和远端建立连接
 
     git remote add origin https://code.csdn.net/guodongxiaren/test.git
@@ -205,39 +205,39 @@ linux中直接使用`git commit`会出现nano。nano写commit的提示信息很�
 
 2014/07/04
 ==========
-## git commit -a
+##  git commit -a
 commit的`a`选项，只能捕获修改和删除的文件。
 
 2014/07/08
 ==========
-## 对于git add .的再理解
+##  对于git add .的再理解
 git add .只能添加当前目录及其子目录下新增或修改的文件，
 不能添加兄弟目录下的文件。
 
 2014/07/12
 ==========
-## git add -A
+##  git add -A
 这个命令一定要加路径才行。要添加该目录树下所有新文件
 
     git add -A :/
 
 2014/07/23
 ==========
-## 克隆远端repository的时候，可以在后面加一个参数。如
+##  克隆远端repository的时候，可以在后面加一个参数。如
 
     git clone git@github.com:abc/hello.git hehe
 这样这个repo的所在的文件夹名称就变为了hehe，而不是默认的hello了。
-## 删除远端的分支
+##  删除远端的分支
 
     git push origin --delete <分支名>
 注意空格。即使是在子目录中也能添加整个目录树的文件。
 2014/08/11
 ==========
-## 设置默认追踪分支
+##  设置默认追踪分支
 
     git branch --set-upstream-to=origin/<branch> master
 这样就可以直接`git pull`了，而不用指定远端和分支。
-## git协议的误区
+##  git协议的误区
 使用SSH协议可以避免每次`push`输入密码。前提是在账户里配置好SSH秘钥。
 git@github.com开头的就是SSH协议。
 使用Https协议则会导致每次都会输入用户名和密码。
@@ -247,27 +247,27 @@ git@github.com开头的就是SSH协议。
 https协议记住密码的命令。
 2014/09/14
 ==========
-## 查询man手册
+##  查询man手册
 查看man手册的git命令时，比如查询git diff要使用man git-diff。
-## git ls-files
+##  git ls-files
 可以显示在Git管理范围内的文件。
-## git diff
+##  git diff
 比较差别。但是只能显示已经在Git范围内的文件，新建而未添加的文件不显示差别。  
 *注意*，git diff显示的是“缓存区”(staging area)和工作区之间的差别。  
 也就是说，当我把改动的文件add之后，缓存区与工作区就一致了，使用git diff就会没有反应。
-#### git diff HEAD
+####  git diff HEAD
 用以显示最新提交(commit)和当前工作区的差别。包括已更改但尚未add的改动。
-#### git diff --cached
+####  git diff --cached
 用以显示最新提交和缓存区的差别。包括已add但尚未commit的改动。
 2014/10/11
 ==========
-##撤销暂存的文件
+## 撤销暂存的文件
 暂存，就是已经add但未commit的文件。   
     
     git reset HEAD
 恢复所有add文件为未暂存的状态。
 也可以使用上面语句加上单个文件名，来恢复单个文件。
-## 撤销commit的文件
+##  撤销commit的文件
 先用git log查看每个版本的hash值  
 使用下面语句恢复到特定版本
    
@@ -276,7 +276,7 @@ hash值也可以用HEAD代替。
 HEAD^代表上一次commit前的版本。     
 注意，这时已经暂存但未commit的文件，将消失。在上次版本之后出现的文件，也将消失。    
 HEAD^^代表上上次commit前的版本，以此类推。
-## 删除所有未被跟踪的文件
+##  删除所有未被跟踪的文件
     git clean -df
 
 2014/10/24
@@ -316,7 +316,7 @@ origin后面的django指的是远程分支，最后一个参数django是本地�
 .classpath为文件名
 2014/12/29
 ===========
-##丢弃工作区改动
+## 丢弃工作区改动
 如果你的工作区发生了改动，还没暂存的话，
 那么用`git status`查看，改动的文件会是红色的。此时如果执行`git pull`，
 则会出现问题，提示你要暂存改动，如果你不想暂存，想用云端的文件覆盖掉本地的文件，
@@ -325,7 +325,7 @@ origin后面的django指的是远程分支，最后一个参数django是本地�
     git checkout 要丢弃改动的文件名
     git checkout ddl.sql
     
-## 把本地分支同步到remote
+##  把本地分支同步到remote
     git push -u origin test
 上面命令将当前本地分支，推送到远端的test分支，并建立关联。
 远端若无test分支，则会自动创建
@@ -372,7 +372,7 @@ git clone -b 分支名 远端URL
 
 2016/03/24
 ============
-## 孤儿分支，开启新历史  
+##  孤儿分支，开启新历史  
 如果你想抛弃所有的git历史纪录，你可以创建一个孤儿分支，它不继承自任何父分支。而是重新开启一段git历史记录。
 它不会丢失之前的文件，你只需要重新把它们commit一次。例如：
 ```
@@ -381,10 +381,26 @@ git checkout --orpha gh-pages
 上述命令创建了一个分支`gh-pages`。
 >如果原始分支master是空的，那么gh-pages分支创建后，master分支将消失。如果master不空，那么不消失。
 
-## 删除远程分支
+##  删除远程分支
 比如你想删除远程master分支。那么：
 - 本地删除master分支：`git branch -D master`
 - 在github上将其他分支（比如gh-pages）设置为默认分支
 - 本地执行`git push -u origin :master`（冒号前空格）
 
 注意执行顺序。
+
+2018/10/22
+========
+```
+git push origin HEAD:refs/for/master
+```
+这个命令会将代码推送到云端，但是不会直接在云端的master分支生效，表示需要经过code review才能生效。
+企业内部为了规范代码的提交，常常使用
+
+2019
+=======
+## 保持git log的时间线线性！
+在工作中，多人合作开发一个项目的时候，难免存在其他人更新了master代码的情况。这时候如果直接`git pull`则会自动产生一个merge记录，在git log里。通常merge log是不友好的，会给代码回溯，代码review带来一些麻烦。企业内部一般鼓励保持git log时间线的线性，所谓线性就是不含有merge记录。应该在pull代码的时候进行如下操作：
+要使用`git pull --rebase`代替`git pull`，这个操作称之为『变基』。没冲突则自动成功，把你的commit调整到master最后一个commit之后。如果有冲突，此时会出现一个临时分支，并且会自动切到该分支下。像平常一样修改代码解决冲突，然后git add修改的文件，此时不要`git commit --amend`。而是使用`git rebase --continue`。则会回到master分支，并且将时间线调整成线性。
+
+如果你已经误操作了`git pull`，并且自动出现了merge记录也有补救措施，就是`git reset --soft`软重置到你commit的时间点。然后重新执行`git pull --rebase`，进行正确的操作，由于是软重置，本地代码改动未丢失，基本上不会再大量改动冲突文件，当然可能也会报冲突，不过打开文件，你会发现：`<<<===`中间是空的，直接删除冲突标记行就可以。
